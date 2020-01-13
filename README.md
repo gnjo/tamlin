@@ -11,7 +11,7 @@ tamlin(macro,(mes,me)=>{
 ```
 ## macro
 ```
-MRK(`＃開始`);
+MRK(`＃開始`,i);
 RTN(`あいうえを入れておく`);「「あいうえを入れておく」」 //RTN set to $$$
 EVL(`＄０２＝＄＄＄`); //＄０２＝＄＄＄； evl inner toSmall
 RTN(EVL(`＄０１＋１０＋１０＊２`));//｛＄０１＋１０＋１０＊２｝
