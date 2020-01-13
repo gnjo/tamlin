@@ -26,3 +26,47 @@
  root.controller=c;
  //controller.done('pre')
 })(this);
+
+;(function(root){
+ const map={
+  "１": "1"
+  , "２": "2"
+  , "３": "3"
+  , '４': "4"
+  ,"５": "5"
+  , "６": "6"
+  , "７": "7"
+  , '８': "8"
+  ,"９": "9"
+  , "０": "0"
+  ,"．":"."
+  , "＋": "+"
+  , '－': "-"
+  ,"＊": "*"
+  , "／": "/"
+  , "＄": "$"
+  
+ }
+ const pattern=Object.keys(map).join("|")
+ function toSmall(str,turnflg){ //turnflg toBig
+ return str.replace(new RegExp(pattern, "g") , function(e){return map[e]})
+}
+ var map2={}
+ Object.keys(map).map(d=>{
+  let k=map[d]
+  let v=d
+  map2[k]=v
+ })
+ console.log(map,map2)
+ const pattern2=Object.keys(map2).join("|")
+ 
+ function toBig(str,turnflg){ //turnflg toBig
+  return str.replace(pattern2, function(e){return map2[e]})
+ } 
+ root.toSmall =toSmall;
+ root.toBig=toBig;
+})(this);
+
+//eval
+function _(obj){return Function('"use strict";return (' + obj + ')')()}
+
