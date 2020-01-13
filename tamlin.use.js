@@ -57,7 +57,7 @@
   let v=d
   map2[k]=v
  })
- console.log(map,map2)
+ //console.log(map,map2)
  const pattern2=Object.keys(map2).join("|")
  
  function toBig(str,turnflg){ //turnflg toBig
