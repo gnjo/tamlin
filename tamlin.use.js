@@ -68,5 +68,6 @@
 })(this);
 
 //eval
-function _(obj){return Function('"use strict";return (' + obj + ')')()}
+//function _(obj){return Function('"use strict";return (' + obj + ')')()}
+function _(obj){return Function('return (' + obj + ')')()}
 
