@@ -45,7 +45,7 @@
   ,"＊": "*"
   , "／": "/"
   , "＄": "$"
-  
+  , "＝": "="
  }
  const pattern=Object.keys(map).join("|")
  function toSmall(str,turnflg){ //turnflg toBig
