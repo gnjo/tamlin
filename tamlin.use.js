@@ -65,7 +65,7 @@ function _t(obj){
  let re_trimwrap=/{|}/g
  let re_trimwrap2=/「|」|＊「/g
  let re_head=/^{/;
- let re=re.test(obj)?re_trimwrap:re_trimwrap2
+ let re=re_head.test(obj)?re_trimwrap:re_trimwrap2
  return obj.replace(re,'')
 }
 
