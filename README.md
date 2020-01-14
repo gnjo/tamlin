@@ -2,7 +2,7 @@
 ```
 tamlin(macro,(mes,me)=>{
  //mes
-})
+},fps) //default 20
 ```
 
 ## controller
