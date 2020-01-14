@@ -47,7 +47,7 @@
 //function _(obj){return Function('"use strict";return (' + obj + ')')()}
 function _(obj){return Function('return (' + obj + ')')()}
 
-function EVL(obj,bigflg){
+function _m(obj,bigflg){
  //message rep
  let re=/{(.*)}/g
  return obj.replace(re,(d,dd)=>{
