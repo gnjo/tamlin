@@ -16,13 +16,11 @@ tamlin(macro,(mes,me)=>{
 _() //eval core
 _m() //eval rep
 _t() //trim
+lists=[ {str:,type:,line:},... ]
 
-let calc=(ary,tm)=>{
- let str=_t(ary[0]) //////
- let type=ary[1]
- //let line=tm.line
- let f=tm.cmd[type]
- return f(str,tm)
+let calc=(list,tm)=>{
+ let f=tm.cmd[list.type]||tm.cmd['CMM']
+ return f(_t(list.str),tm)
 }
 
 let CMM=(str,tm)=>{
@@ -38,12 +36,13 @@ let EVM=(str,tm)=>{
  return tm.next();
 }
 let JMP=(str,tm)=>{
- let a=str.split('>>>'),i=tm.jmps[a[1]] //not is void 0
+ let a=str.split('>>>'),i= lists.filter(d=>d.str===a[1]).map(d=>d.line)||void 0
  $$$ = _(str);
  return (!$$$ || i==void 0)?tm.next():tm.next(i)
 }
+
 let MRK=(str,tm)=>{
- $$$ = tm.jmps[str] = tm.line////////
+ $$$ = tm.line////////
  return tm.next();
 }
 let SEL=(str,tm)=>{
