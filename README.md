@@ -17,7 +17,11 @@ _() //eval core
 _m() //eval rep
 _t() //trim
 
-tm.search=(addr){ //searchline
+tm.lex=(text)=>{
+ //[{str,type,line}]
+}
+
+tm.search=(addr)=>{ //searchline
  let i=tm.lists.filter(d=>d.str===a[1]).map(d=>d.line)||void 0
  return i;
 }
