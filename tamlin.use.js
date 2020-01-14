@@ -81,6 +81,7 @@ function __(obj){
   $$$=_(dd);
   return toBig(''+$$$)
 })
+}
 
 ;(function(root){
  function entry(_list){
