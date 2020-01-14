@@ -16,7 +16,12 @@ tamlin(macro,(mes,me)=>{
 _() //eval core
 _m() //eval rep
 _t() //trim
-lists=[ {str:,type:,line:},... ]
+
+tm.search=(addr){ //searchline
+ let i=tm.lists.filter(d=>d.str===a[1]).map(d=>d.line)||void 0
+ return i;
+}
+tm.lists=[ {str:,type:,line:},... ]
 
 let calc=(list,tm)=>{
  let f=tm.cmd[list.type]||tm.cmd['CMM']
@@ -36,7 +41,7 @@ let EVM=(str,tm)=>{
  return tm.next();
 }
 let JMP=(str,tm)=>{
- let a=str.split('>>>'),i= lists.filter(d=>d.str===a[1]).map(d=>d.line)||void 0
+ let a=str.split('>>>'),i=tm.search(a[1])
  $$$ = _(str);
  return (!$$$ || i==void 0)?tm.next():tm.next(i)
 }
