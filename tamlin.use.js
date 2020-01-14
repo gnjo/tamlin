@@ -64,19 +64,19 @@ function _t(obj){
 ;(function(root){
  function entry(_list){
   let o={}
-  o.list=_list||[]
+  o.lists=_list||[] //lists
   o.line=0 //count
   o.block=0 //flg
   o.end=0 //flg
   ;
   o.get=()=>{
-   let s=o.block?void 0:o.list[o.line]
+   let s=o.block?void 0:o.lists[o.line]
    if(s) o.block=1;
    return s;
   }
   o.next=(d)=>{
    (d!=null)?o.line=d:o.line++;
-   o.end=(o.list.length-1<o.line)?1:0;
+   o.end=(o.lists.length-1<o.line)?1:0;
    return o.block=0
   }
   o.isend=()=>{return o.end}
