@@ -77,10 +77,7 @@ function _(obj){return Function('return (' + obj + ')')()}
 function __(obj){
  //message rep
  let re=/{(.*)}/g
- let a=obj.replace(re,(d,dd)=>{
-  $$$=_(dd);
-  return toBig(''+$$$)
-})
+ return obj.replace(re,(d,dd)=>{$$$=_(dd);return toBig(''+$$$)})
 }
 
 ;(function(root){
