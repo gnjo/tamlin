@@ -16,6 +16,15 @@ tamlin(macro,(mes,me)=>{
 _() //eval core
 _m() //eval rep
 _t() //trim
+
+let calc=(ary,tm)=>{
+ let str=_t(ary[0]) //////
+ let type=ary[1]
+ //let line=tm.line
+ let f=tm.cmd[type]
+ return f(str,tm)
+}
+
 let CMM=(str,tm)=>{
 //comment
  return tm.next()
@@ -34,7 +43,7 @@ let JMP=(str,tm)=>{
  return (!$$$ || i==void 0)?tm.next():tm.next(i)
 }
 let MRK=(str,tm)=>{
- $$$ = tm.jmps[str] = tm.getline()
+ $$$ = tm.jmps[str] = tm.line////////
  return tm.next();
 }
 let SEL=(str,tm)=>{
