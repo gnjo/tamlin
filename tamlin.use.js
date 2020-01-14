@@ -28,56 +28,32 @@
 })(this);
 
 ;(function(root){
- const map={
-  "１": "1"
-  , "２": "2"
-  , "３": "3"
-  , '４': "4"
-  ,"５": "5"
-  , "６": "6"
-  , "７": "7"
-  , '８': "8"
-  ,"９": "9"
-  , "０": "0"
-  ,"．":"\."
-  , "＋": "\+"
-  , '－': "\-"
-  ,"＊": "\*"
-  , "／": "\/"
-  , "＄": "\$"
-  , "＝": "\="
-  ,"｛":"\{"
-  ,"｝":"\}"
-  ,"　":" "
+ let fn={}
+ fn.toSmall=(str)=>{
+  return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+   return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+  }) 
  }
- const pattern=Object.keys(map).join("|")
- function toSmall(str,turnflg){ //turnflg toBig
- return str.replace(new RegExp(pattern, "g") , function(e){return map[e]})
-}
- var map2={}
- Object.keys(map).map(d=>{
-  let k=map[d]
-  let v=d
-  map2[k]=v
- })
- //console.log(map,map2)
- const re_pattern2=/0|1|2|3|4|5|6|7|8|9|\.|\+|\-|\*|\/|\$|\=|\{|\} /g
- function toBig(str,turnflg){ //turnflg toBig
-  return str.replace(re_pattern2/*new RegExp(pattern2, "g")*/, function(e){return map2[e]})
+ fn.toBig=(str)=>{
+  return str.replace(/[A-Za-z0-9]/g, function(s) {
+   return String.fromCharCode(s.charCodeAt(0) + 0xFEE0);
+  });
  }
- root.toSmall =toSmall;
- root.toBig=toBig;
+ root.toSmall=fn.toSmall;
+ root.toBig=fn.toBig
 })(this);
-
 
 //eval
 //function _(obj){return Function('"use strict";return (' + obj + ')')()}
 function _(obj){return Function('return (' + obj + ')')()}
 
-function __(obj){
+function EVL(obj,bigflg){
  //message rep
  let re=/{(.*)}/g
- return obj.replace(re,(d,dd)=>{$$$=_(dd);return toBig(''+$$$)})
+ return obj.replace(re,(d,dd)=>{
+  $$$=_(dd);
+  return bigflg?toBig(''+$$$):$$$
+ })
 }
 
 ;(function(root){
