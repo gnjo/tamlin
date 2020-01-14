@@ -45,7 +45,10 @@
 
 //eval
 //function _(obj){return Function('"use strict";return (' + obj + ')')()}
-function _(obj){return Function('return (' + obj + ')')()}
+//function _(obj){return Function('return (' + obj + ')')()}
+function _(obj){
+ console.log(obj);
+ return Function('return (' + obj + ')')()}
 
 function _m(obj,bigflg){
  //message rep
