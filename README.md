@@ -17,6 +17,10 @@ _() //eval core
 _m() //eval rep
 _t() //trim
 
+tm.type=(str)=>{
+CMM,EVL,EVM,JMP,MRK,SEL,MES
+}
+
 tm.lex=(text)=>{
  //[{str,type,line}]
 }
