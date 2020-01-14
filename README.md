@@ -1,6 +1,6 @@
 # tamlin
 ```
-tamlin(macro,(mes,me)=>{
+tamlin(macro,(mes,tm)=>{
  //mes
 },fps) //default 20
 ```
