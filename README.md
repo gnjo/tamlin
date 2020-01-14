@@ -16,6 +16,10 @@ tamlin(macro,(mes,me)=>{
 _() //eval core
 _m() //eval rep
 _t() //trim
+let CMM=(str,tm)=>{
+//comment
+ return tm.next()
+}
 let EVL=(str,tm)=>{
  $$$ = _(str);
  return tm.next();
@@ -39,7 +43,6 @@ let SEL=(str,tm)=>{
 let MES=(str,tm)=>{
  //...
 }
-
 
 ```
 ```
