@@ -69,6 +69,13 @@ function _t(obj){
  return obj.replace(re,'')
 }
 
+function _l(_str){
+ //あ｜い｜う｜え
+ //か｜き｜く｜け
+ let cep="｜",str=_str.trim()
+ return str.split('\n').map(d=>{return d.split(cep)})
+}
+
 ;(function(root){
  function entry(_list){
   let o={}
