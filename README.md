@@ -16,6 +16,7 @@ tamlin(macro,(mes,tm)=>{
 _() //eval core
 _m() //eval rep
 _t() //trim
+_l() //stringlist ｜
 
 tm.type=(str)=>{
 CMM,EVL,EVM,JMP,MRK,SEL,MES
