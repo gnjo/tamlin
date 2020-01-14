@@ -56,6 +56,7 @@ function _m(obj,bigflg){
  let re=/{(.*)}/g
  return obj.replace(re,(d,dd)=>{
   $$$=_(dd);
+  console.log(d,dd)
   return bigflg?toBig(''+$$$):$$$
  })
 }
