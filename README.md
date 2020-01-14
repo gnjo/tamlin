@@ -12,8 +12,10 @@ tamlin(macro,(mes,me)=>{
 ## macro
 
 ```js
-let re_trimwrap=/{|}|「|」|＊「/g
-_() //
+//let re_trimwrap=/{|}|「|」|＊「/g
+_() //eval core
+_m() //eval rep
+_t() //trim
 let EVL=(str,tm)=>{
  $$$ = _(str);
  return tm.next();
