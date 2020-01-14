@@ -10,6 +10,36 @@ tamlin(macro,(mes,me)=>{
  c.keys={37:'<',39:'>',38:'^',40:'v',70:'A',68:'B',65:'X',83:'Y',82:'R',69:'L'}
 ```
 ## macro
+
+```js
+let re_trimwrap=/{|}|「|」|＊「/g
+_() //
+let EVL=(str,tm)=>{
+ $$$ = _(str);
+ return tm.next();
+}
+let EVM=(str,tm)=>{
+ $$$ =_m(str);///
+ return tm.next();
+}
+let JMP=(str,tm)=>{
+ let a=str.split('>>>'),i=tm.jmps[a[1]] //not is void 0
+ $$$ = _(str);
+ return (!$$$ || i==void 0)?tm.next():tm.next(i)
+}
+let MRK=(str,tm)=>{
+ $$$ = tm.jmps[str] = tm.getline()
+ return tm.next();
+}
+let SEL=(str,tm)=>{
+ //...
+}
+let MES=(str,tm)=>{
+ //...
+}
+
+
+```
 ```
 {} //eval
 {}>>>#xyz //if {} is 1, eval jump 
