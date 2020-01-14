@@ -56,14 +56,17 @@ function _m(obj,bigflg){
  let re=/{(.*)}/g
  return obj.replace(re,(d,dd)=>{
   $$$=_(dd);
-  console.log(d,dd)
+  //console.log(d,dd)
   return bigflg?toBig(''+$$$):$$$
  })
 }
 
 function _t(obj){
- let re_trimwrap=/{|}|「|」|＊「/g
- return obj.replace(re_trimwrap,'')
+ let re_trimwrap=/{|}/g
+ let re_trimwrap2=/「|」|＊「/g
+ let re_head=/^{/;
+ let re=re.test(obj)?re_trimwrap:re_trimwrap2
+ return obj.replace(re,'')
 }
 
 ;(function(root){
