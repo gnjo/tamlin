@@ -96,3 +96,32 @@ fn.q('button').onclick=()=>{
 */ 
 })(this);
 
+;(function(root){
+ function typecheck(d){
+  //CMM,EVL,EVM,JMP,MRK,SEL,MES
+  let type='CMM'
+  ,re_EVL=/^{(\s|\S)*?}/
+  ,re_EVM=/^「「(\s|\S)*?」」/
+  ,re_JMP=/^{(.*)}>>>#(.*)/
+  ,re_MRK=/^#(.*)/
+  ,re_SEL=/^\*「(\s|\S)*?」|^＊「(\s|\S)*?」/ 
+  ,re_MES=/^「(\s|\S)*?」/
+  let str=d
+  if(re_MRK.test(str)) type='MRK'
+  if(re_MES.test(str)) type='MES' 
+  if(re_EVL.test(str)) type='EVL'
+  if(re_EVM.test(str)) type='EVM' 
+  if(re_JMP.test(str)) type='JMP' 
+  if(re_MRK.test(str)) type='MRK'
+  if(re_SEL.test(str)) type='SEL'
+  return type
+ } 
+ function lex(text){
+  let re=/(＊「(?:\s|\S)*?」)|(「「(?:\s|\S)*?」」)|(「(?:\s|\S)*?」)|(.+)/g
+  return text.match(re).map((d,i)=>{return {str:d,line:i,type:typecheck(d)}})
+  ;
+ }
+  root.lex=lex;
+  root.typecheck=typecheck;
+ })(this)
+
