@@ -54,7 +54,7 @@ function _(obj){return Function('return (' + obj + ')')()}
 function _m(obj,bigflg){
  //message rep
  //let re=/{(.*)}/g
- let re=/{(.)*?}/g
+ let re=/{(.*?)}/g
  return obj.replace(re,(d,dd)=>{
   $$$=_(dd);
   //console.log(d,dd)
