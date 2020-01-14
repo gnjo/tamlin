@@ -95,6 +95,14 @@ function _l(_str){
    o.end=(o.lists.length-1<o.line)?1:0;
    return o.block=0
   }
+  o.reload=(_list)=>{
+   o.block=1;
+   o.line=999;
+   o.lists=_list||[]
+   o.line=0;
+   o.block=0;
+   return;
+  }
   o.isend=()=>{return o.end}
   o.isEnd=o.isend
   return o;
