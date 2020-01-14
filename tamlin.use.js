@@ -133,3 +133,13 @@ fn.q('button').onclick=()=>{
   root.typecheck=typecheck;
  })(this)
 
+;(function(root){
+ let padder=(_l,_r,_max,_sp)=>{
+  let max=_max||8,sp=_sp||' ',l=_l||'',r=_r||''
+  return l+(Array(max).join(sp)+_r).slice(-1*(max-l.length))
+  //let s=padder('鉄の爪','３００',33,'　')
+ }
+ root.padder=padder;
+})(this);
+
+
