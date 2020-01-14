@@ -81,7 +81,11 @@ function _(obj){return Function('return (' + obj + ')')()}
   o.block=0 //flg
   o.end=0 //flg
   ;
-  o.get=()=>{return o.block?void 0:o.list[o.line]}
+  o.get=()=>{
+   let s=o.block?void 0:o.list[o.line]
+   if(s) o.block=1;
+   return s;
+  }
   o.next=(d)=>{
    (d!=null)?o.line=d:o.line++;
    o.end=(o.list.length-1<o.line)?1:0;
