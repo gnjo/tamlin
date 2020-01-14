@@ -73,3 +73,34 @@
 //function _(obj){return Function('"use strict";return (' + obj + ')')()}
 function _(obj){return Function('return (' + obj + ')')()}
 
+;(function(root){
+ function entry(_list){
+  let o={}
+  o.list=_list||[]
+  o.line=0 //count
+  o.block=0 //flg
+  o.end=0 //flg
+  ;
+  o.get=()=>{return o.block?void 0:o.list[o.line]}
+  o.next=(d)=>{
+   (d!=null)?o.line=d:o.line++;
+   o.end=(o.list.length-1<o.line)?1:0;
+   return o.block=0
+  }
+  o.isend=()=>{return o.end}
+  o.isEnd=o.isend
+  return o;
+ }
+ root.reader=entry;
+/*
+let li=`MRK\nCMM\nEVL「「あいうえを入れておく」」`.split('\n');
+let rd=reader(li);
+fn.q('button').onclick=()=>{
+ fn.q('pre').textContent=rd.get();
+ fn.q('pre.line').textContent=rd.line +','+ rd.end
+ fn.q('pre.end').textContent=rd.isEnd()?'end':'not'
+ rd.next();
+}
+*/ 
+})(this);
+
