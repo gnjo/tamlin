@@ -18,7 +18,6 @@ tamlin(macro,(mes,me)=>{
 「「」」 //eval input string to $$$
 #xyz //mrk 
 「{$$$}」 //rep replace
-「｛＄＄＄｝」 //allow the big
 tail comment nothing
 ```
 ```
@@ -62,5 +61,5 @@ tail comment nothing
 ；％％９：２０　；フレームレートは二十。
 ＞＞＞＃＃＃　；一つ前の遷移に戻る。
 ＞＞＞＃かきく　；常にジャンプ；｛１｝＞＞＞＃あああ　で統一。
-
+「｛＄＄＄｝」 //allow the big
 ```
