@@ -56,6 +56,11 @@ function _m(obj,bigflg){
  })
 }
 
+function _t(obj){
+ let re_trimwrap=/{|}|「|」|＊「/g
+ return obj.replace(re_trimwrap,'')
+}
+
 ;(function(root){
  function entry(_list){
   let o={}
