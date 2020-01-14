@@ -72,7 +72,6 @@
 //eval
 //function _(obj){return Function('"use strict";return (' + obj + ')')()}
 function _(obj){return Function('return (' + obj + ')')()}
-root._=_;
 
 ;(function(root){
  function entry(_list){
