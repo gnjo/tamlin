@@ -1,4 +1,5 @@
 # tamlin
+https://codepen.io/gnjo/pen/dyPKLPe
 ```
 tamlin(macro,(mes,tm)=>{
  //mes
